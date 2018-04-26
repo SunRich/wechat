@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"net/http"
-
+	"github.com/silenceper/wechat/cache"
 	"github.com/silenceper/wechat"
+	"github.com/silenceper/wechat/material"
+	"net/http"
 	"github.com/silenceper/wechat/message"
 )
 
@@ -40,6 +41,23 @@ func hello(rw http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
+	//配置微信参数
+	redis := cache.NewRedis("192.168.118.174:6379","")
+	config := &wechat.Config{
+		AppID:          "wx235a8df325c1f364",
+		AppSecret:      "your app secret",
+		Token:          "your token",
+		EncodingAESKey: "your encoding aes key",
+		Cache:          redis,
+
+
+	}
+	wc := wechat.NewWechat(config)
+	m := material.NewMaterial(wc.Context)
+	url,err:=m.GetMediaURL("UOPeYV3zne3VdhFO1hG8l8-FBAxyDPtCM7iHNBN0_KqJrfcgMhvruxsu8ybNCGnN")
+	fmt.Println(url)
+	fmt.Println(err)
+
 	http.HandleFunc("/", hello)
 	err := http.ListenAndServe(":8001", nil)
 	if err != nil {

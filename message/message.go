@@ -65,38 +65,38 @@ type MixMessage struct {
 	CommonToken
 
 	//基本消息
-	MsgID        int64   `xml:"MsgId"`
-	Content      string  `xml:"Content"`
-	PicURL       string  `xml:"PicUrl"`
-	MediaID      string  `xml:"MediaId"`
-	Format       string  `xml:"Format"`
-	ThumbMediaID string  `xml:"ThumbMediaId"`
-	LocationX    float64 `xml:"Location_X"`
-	LocationY    float64 `xml:"Location_Y"`
-	Scale        float64 `xml:"Scale"`
-	Label        string  `xml:"Label"`
-	Title        string  `xml:"Title"`
-	Description  string  `xml:"Description"`
-	URL          string  `xml:"Url"`
+	MsgID        int64   `xml:"MsgId"json:"MsgID,omitempty"`
+	Content      string  `xml:"Content"json:"Content,omitempty"`
+	PicURL       string  `xml:"PicUrl"json:"PicURL,omitempty"`
+	MediaID      string  `xml:"MediaId"json:"MediaID,omitempty"`
+	Format       string  `xml:"Format"json:"Format,omitempty"`
+	ThumbMediaID string  `xml:"ThumbMediaId"json:"ThumbMediaID,omitempty"`
+	LocationX    float64 `xml:"Location_X"json:"LocationX,omitempty"`
+	LocationY    float64 `xml:"Location_Y"json:"LocationY,omitempty"`
+	Scale        float64 `xml:"Scale"json:"Scale,omitempty"`
+	Label        string  `xml:"Label"json:"Label,omitempty"`
+	Title        string  `xml:"Title"json:"Title,omitempty"`
+	Description  string  `xml:"Description"json:"Description,omitempty"`
+	URL          string  `xml:"Url"json:"URL,omitempty"`
 
 	//事件相关
-	Event     EventType `xml:"Event"`
-	EventKey  string    `xml:"EventKey"`
-	Ticket    string    `xml:"Ticket"`
-	Latitude  string    `xml:"Latitude"`
-	Longitude string    `xml:"Longitude"`
-	Precision string    `xml:"Precision"`
-	MenuID    string    `xml:"MenuId"`
+	Event     EventType `xml:"Event"json:"Event,omitempty"`
+	EventKey  string    `xml:"EventKey"json:"EventKey,omitempty"`
+	Ticket    string    `xml:"Ticket"json:"Ticket,omitempty"`
+	Latitude  string    `xml:"Latitude"json:"Latitude,omitempty"`
+	Longitude string    `xml:"Longitude"json:"Longitude,omitempty"`
+	Precision string    `xml:"Precision"json:"Precision,omitempty"`
+	MenuID    string    `xml:"MenuId"json:"MenuID,omitempty"`
 
 	ScanCodeInfo struct {
 		ScanType   string `xml:"ScanType"`
 		ScanResult string `xml:"ScanResult"`
-	} `xml:"ScanCodeInfo"`
+	} `xml:"ScanCodeInfo"json:"-"`
 
 	SendPicsInfo struct {
 		Count   int32      `xml:"Count"`
 		PicList []EventPic `xml:"PicList>item"`
-	} `xml:"SendPicsInfo"`
+	} `xml:"SendPicsInfo"json:"-"`
 
 	SendLocationInfo struct {
 		LocationX float64 `xml:"Location_X"`
@@ -104,7 +104,7 @@ type MixMessage struct {
 		Scale     float64 `xml:"Scale"`
 		Label     string  `xml:"Label"`
 		Poiname   string  `xml:"Poiname"`
-	}
+	} `xml:"SendLocationInfo"json:"-"`
 }
 
 //EventPic 发图事件推送
@@ -130,7 +130,7 @@ type ResponseEncryptedXMLMsg struct {
 
 // CommonToken 消息中通用的结构
 type CommonToken struct {
-	XMLName      xml.Name `xml:"xml"`
+	XMLName      xml.Name `xml:"xml"json:"-"`
 	ToUserName   string   `xml:"ToUserName"`
 	FromUserName string   `xml:"FromUserName"`
 	CreateTime   int64    `xml:"CreateTime"`

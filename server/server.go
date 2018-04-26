@@ -101,6 +101,15 @@ func (srv *Server) handleRequest() (reply *message.Reply, err error) {
 func (srv *Server) GetOpenID() string {
 	return srv.openID
 }
+//GetRequestMsg return requestMsg
+func (srv *Server) GetRequestMsg() interface{} {
+	return srv.requestMsg
+}
+
+//GetResponseMsg return responseMsg
+func (srv *Server) GetResponseMsg() interface{} {
+	return srv.responseMsg
+}
 
 //getMessage 解析微信返回的消息
 func (srv *Server) getMessage() (interface{}, error) {
