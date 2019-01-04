@@ -68,7 +68,7 @@ type MixMessage struct {
 	MsgID        int64   `xml:"MsgId"json:"MsgID,omitempty"`
 	Content      string  `xml:"Content"json:"Content,omitempty"`
 	PicURL       string  `xml:"PicUrl"json:"PicURL,omitempty"`
-	MediaID      string  `xml:"MediaId"json:"MediaID,omitempty"`
+	MediaID      string  `xml:"MediaId"json:"MediaId,omitempty"`
 	Format       string  `xml:"Format"json:"Format,omitempty"`
 	ThumbMediaID string  `xml:"ThumbMediaId"json:"ThumbMediaID,omitempty"`
 	LocationX    float64 `xml:"Location_X"json:"LocationX,omitempty"`
