@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/silenceper/wechat/cache"
-	"github.com/silenceper/wechat"
-	"github.com/silenceper/wechat/material"
+	"github.com/SunRich/wechat/cache"
+	"github.com/SunRich/wechat"
+	"github.com/SunRich/wechat/material"
 	"net/http"
-	"github.com/silenceper/wechat/message"
+	"github.com/SunRich/wechat/message"
 )
 
 func hello(rw http.ResponseWriter, req *http.Request) {
